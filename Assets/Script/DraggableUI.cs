@@ -2,18 +2,24 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using Unity.VisualScripting;
-using System.Net.NetworkInformation;
+using UnityEngine.UI.ProceduralImage;
+using JetBrains.Annotations;
+using TMPro;
 
 [RequireComponent(typeof(RectTransform))]
 public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerDownHandler
 {
+    public GamePlay gameplay;
+    
+    [Header("Shake Settings")]
+    [Tooltip("Optional panel to shake when dropped on a wrong slot.")]
+    public RectTransform shakeTargetPanel;
     [Header("Drag settings")]
     public bool clampToCanvas = true;
-    public float returnDuration = 0.15f; // if no snap, how fast to move back
+    public float returnDuration = 0.15f;
     public bool allowSnapOnRelease = true;
-
-    // NEW: if true, when returning to origin it will set localPosition = (0,0,0)
     public bool returnToOriginOnRelease = true;
 
     RectTransform rect;
@@ -22,25 +28,96 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     Vector2 startAnchoredPos;
     Transform originalParent;
 
-    // Optional snap target set by manager (GamePlay)
-    public RectTransform snapTarget;
+    [Header("Snap Settings")]
+    [Tooltip("Single snap target used for green (correct) feedback and snapping.")]
+    public RectTransform correctSnapTarget;
+
+    [Tooltip("Multiple wrong targets that should blink red if the draggable is released near any of them.")]
+    public List<RectTransform> wrongSnapTargets = new List<RectTransform>();
+
+    [Tooltip("Whether this draggable can be dragged.")]
     public bool canDrag;
 
+    [Header("Proximity / Feedback")]
+    [Tooltip("How close (in screen pixels) the draggable must be to a slot to be considered 'near'.")]
+    public float snapDistance = 120f;
+
+    [Tooltip("How long red/green feedback should last.")]
+    public float feedbackDuration = 0.4f;
+    [Tooltip("Red color shown when dropped on a wrong slot.")]
+    public Color wrongTint = new Color(1f, 0.3f, 0.3f, 0.8f);
+    [Tooltip("Green color shown when dropped on the correct slot.")]
+    public Color correctTint = new Color(0.4f, 1f, 0.4f, 0.8f);
+    public GameObject dialogueBox;
+
+    public bool one, two, three;
+    public AudioClip audioClip;
+
+    // internal cache for ongoing blink coroutines
+    private Dictionary<ProceduralImage, Coroutine> feedbackCoroutines = new Dictionary<ProceduralImage, Coroutine>();
 
     void Awake()
     {
         rect = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
-        if (canvas == null) Debug.LogWarning("DraggableUI needs to be inside a Canvas.", this);
+        if (canvas == null)
+            Debug.LogWarning("DraggableUI needs to be inside a Canvas.", this);
 
-        canvasGroup = gameObject.GetComponent<CanvasGroup>();
-        if (canvasGroup == null) canvasGroup = gameObject.AddComponent<CanvasGroup>();
+        canvasGroup = GetComponent<CanvasGroup>();
+        if (canvasGroup == null)
+            canvasGroup = gameObject.AddComponent<CanvasGroup>();
     }
 
     void Start()
     {
         originalParent = rect.parent;
         startAnchoredPos = rect.anchoredPosition;
+    }
+
+    void OnEnable()
+    {
+        // Reset draggable state
+        canDrag = true;
+
+        // Reset position and parent to original setup
+        if (rect != null)
+        {
+            // if we’ve stored originalParent and startAnchoredPos already
+            if (originalParent != null)
+                rect.SetParent(originalParent, false);
+
+            rect.anchoredPosition = startAnchoredPos;
+            //rect.localPosition = Vector3.zero;
+            rect.localScale = Vector3.one;
+        }
+
+        // Reset visual transparency and raycast blocking
+        if (canvasGroup != null)
+        {
+            canvasGroup.alpha = 1f;
+            canvasGroup.blocksRaycasts = true;
+        }
+
+        // Reset hover effect scale
+        UIHoverClickEffect hover = GetComponent<UIHoverClickEffect>();
+        if (hover != null)
+        {
+            hover.hoverScale = 1.08f; // ✅ Set this to your initial scale
+        }
+
+        // Reset flags in gameplay (if you want to re-try fresh round)
+        if (gameplay != null)
+        {
+            if (one) gameplay.one = false;
+            if (two) gameplay.two = false;
+            if (three) gameplay.three = false;
+        }
+
+        // Hide dialogue box at start
+        if (dialogueBox != null)
+            dialogueBox.SetActive(false);
+
+      
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -53,28 +130,26 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         if (!canDrag) return;
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = 0.95f;
-        // reparent to canvas root so it draws above everything (optional)
+
+        // temporarily move to canvas root so it draws above everything
         if (canvas != null)
             rect.SetParent(canvas.transform, true);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (!canDrag) return;
-        if (canvas == null) return;
+        if (!canDrag || canvas == null) return;
 
-        // Convert screen point to local point in the parent RectTransform
         RectTransform parentRect = rect.parent as RectTransform;
         Vector2 anchored;
-        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRect, eventData.position, eventData.pressEventCamera, out anchored))
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            parentRect, eventData.position, eventData.pressEventCamera, out anchored))
         {
             rect.anchoredPosition = anchored;
         }
 
         if (clampToCanvas)
-        {
             KeepInsideParent(rect);
-        }
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -83,58 +158,144 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
 
-        // Decide whether we should snap (distance threshold)
-        bool willSnap = false;
-        float snapDistance = 120f; // pixels, tweak as needed
+        // Find nearest target among correct and wrong lists
+        RectTransform nearest = null;
+        bool nearestIsCorrect = false;
+        float bestDist = float.MaxValue;
 
-        if (allowSnapOnRelease && snapTarget != null)
+        Vector2 currentScreen = RectTransformUtility.WorldToScreenPoint(canvas.worldCamera, rect.position);
+
+        // Check correct slot
+        if (correctSnapTarget != null)
         {
-            Vector2 currentScreen = RectTransformUtility.WorldToScreenPoint(canvas.worldCamera, rect.position);
-            Vector2 targetScreen = RectTransformUtility.WorldToScreenPoint(canvas.worldCamera, snapTarget.position);
-            float dist = Vector2.Distance(currentScreen, targetScreen);
-            if (dist <= snapDistance) willSnap = true;
+            Vector2 correctScreen = RectTransformUtility.WorldToScreenPoint(canvas.worldCamera, correctSnapTarget.position);
+            float d = Vector2.Distance(currentScreen, correctScreen);
+            if (d <= snapDistance && d < bestDist)
+            {
+                nearest = correctSnapTarget;
+                nearestIsCorrect = true;
+                bestDist = d;
+                if (one)
+                {
 
+                    gameplay.one = true;
+                }
+                else if (two)
+                {
 
-                
+                    gameplay.two = true;
+                }
+                else if (three)
+                {
+
+                    gameplay.three = true;
+                }
+            }
         }
 
-        if (willSnap)
+        // Check wrong slots
+        if (wrongSnapTargets != null)
         {
-            // Animate visually to the snapTarget position while still parented to canvas,
-            // then reparent into snapTarget and zero the anchored/local position.
-            StartCoroutine(SnapThenParent(snapTarget, 0.12f));
-            canDrag = false;
-            UIHoverClickEffect uIHoverClickEffect = gameObject.GetComponent<UIHoverClickEffect>();
-            if (uIHoverClickEffect != null)
+            foreach (var w in wrongSnapTargets)
             {
-                uIHoverClickEffect.enabled = false;
+                if (w == null) continue;
+                Vector2 wScreen = RectTransformUtility.WorldToScreenPoint(canvas.worldCamera, w.position);
+                float d = Vector2.Distance(currentScreen, wScreen);
+                if (d <= snapDistance && d < bestDist)
+                {
+                    nearest = w;
+                    nearestIsCorrect = false;
+                    bestDist = d;
+                }
+            }
+        }
+
+        // Now act based on nearest found
+        if (nearest != null)
+        {
+            // Show only that single slot feedback
+            ShowSnapFeedback(nearest, nearestIsCorrect);
+
+            if (nearestIsCorrect)
+            {
+                // Snap into correct target
+                StartCoroutine(SnapThenParent(nearest, 0.12f));
+                canDrag = false;
+
+                UIHoverClickEffect hover = GetComponent<UIHoverClickEffect>();
+                if (hover != null) hover.hoverScale = 1.2f;
+            }
+            else
+            {
+                // Wrong slot — blink red then return to origin
+                StartCoroutine(ReturnToOriginAfterReparent(returnDuration));
             }
         }
         else
         {
-            // Not snapping: reparent back to original parent (so anchored coords match startAnchoredPos)
+            // Not near any slot — return without any blink
             if (originalParent != null && rect.parent != originalParent)
             {
-                // Reparent first — this ensures local space matches the original coordinate system
                 rect.SetParent(originalParent, false);
-               rect.anchoredPosition = Vector3.zero;
-
-                // // Reset anchored and local position cleanly in the original parent's space
-                // // rect.anchoredPosition = startAnchoredPos;
-                // rect.localPosition = Vector3.zero;
+                rect.anchoredPosition = startAnchoredPos;
             }
+            ResetToStart(true);
+        }
+    }
 
+    // 🔸 Show feedback (blink) only on that single slot
+    void ShowSnapFeedback(RectTransform slot, bool isCorrect)
+    {
+        if (slot == null) return;
 
-            // Animate back to stored start anchored pos (in original parent's space)
-           // ResetToStart(true);
+        var proc = slot.GetComponent<ProceduralImage>();
+        if (proc == null)
+            proc = slot.GetComponentInChildren<ProceduralImage>();
 
-           
+        if (proc == null) return;
+
+        // cancel existing blink if active
+        if (feedbackCoroutines.TryGetValue(proc, out Coroutine running))
+        {
+            if (running != null) StopCoroutine(running);
+            feedbackCoroutines.Remove(proc);
         }
 
-        // Note: do not call SetParent(originalParent) here for the snapping case;
-        // SnapThenParent will reparent after animation finishes.
+        // Start new blink coroutine using crossfade which is robust for UI graphics
+        Coroutine c = StartCoroutine(BlinkColorCrossFade(proc, isCorrect ? correctTint : wrongTint));
+        feedbackCoroutines[proc] = c;
+
+
+        // 💥 Add this line — shake canvas only when wrong
+        if (!isCorrect)
+            StartCoroutine(ShakeCanvas(0.25f, .1f));
     }
-    // Replace your existing SnapThenParent with this version
+
+    IEnumerator BlinkColorCrossFade(ProceduralImage img, Color blinkColor)
+    {
+        if (img == null) yield break;
+
+        Color original = img.color;
+        float halfDur = feedbackDuration * 0.5f;
+
+        // Instantly crossfade to blinkColor (duration 0 so it's immediate)
+        img.CrossFadeColor(blinkColor, 0f, true, true);
+
+        // Keep it for half the duration, then fade back during the remaining half
+        yield return new WaitForSecondsRealtime(halfDur);
+
+        // Smoothly return to original color over halfDur
+        img.CrossFadeColor(original, halfDur, true, true);
+        yield return new WaitForSecondsRealtime(halfDur);
+
+        // Ensure exact original value at the end
+        img.color = original;
+
+        if (feedbackCoroutines.ContainsKey(img))
+            feedbackCoroutines.Remove(img);
+    }
+
+    // --- SNAP + RESET LOGIC (unchanged) ---
     IEnumerator SnapThenParent(RectTransform targetSlot, float dur)
     {
         if (targetSlot == null)
@@ -145,68 +306,30 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             yield break;
         }
 
-        // 1) Compute the anchored position of the target in the current parent (canvas) space
         RectTransform currentParentRect = rect.parent as RectTransform;
         Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(canvas.worldCamera, targetSlot.position);
         Vector2 canvasAnchored;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(currentParentRect, screenPoint, canvas.worldCamera, out canvasAnchored);
 
-        // 2) Animate to that anchored position while staying under Canvas parent
         yield return MoveToAnchoredPositionCo(rect, canvasAnchored, dur);
 
-        // 3) Reparent into the target slot (false = keep the visual position initially)
         rect.SetParent(targetSlot, false);
-
-        // 4) Now fix the child's transform so it centers and matches slot size:
-        //    - set anchors to center, pivot to center
-        //    - reset scale to 1
-        //    - optionally match the slot's size (or set a desired sizeDelta)
-        rect.pivot = new Vector2(0.5f, 0.5f);
-        rect.anchorMin = new Vector2(0.5f, 0.5f);
-        rect.anchorMax = new Vector2(0.5f, 0.5f);
+        rect.pivot = rect.anchorMin = rect.anchorMax = new Vector2(0.5f, 0.5f);
         rect.localScale = Vector3.one;
-
-        // Option A (recommended): snap to center and make the draggable fill the slot
         rect.anchoredPosition = Vector2.zero;
-
-        // If you want the draggable to match the slot's size exactly, use:
-        // rect.sizeDelta = targetSlot.rect.size; // copy slot size in pixels
-        // Or use a specific padding:
-        // rect.sizeDelta = targetSlot.rect.size * 0.9f; // slightly smaller than slot
-
-        // 5) Final safety: snap localPosition to zero to avoid sub-pixel drift
-        rect.anchoredPosition = Vector3.zero;
-
-        yield break;
-    }
-
-
-IEnumerator ReturnToOriginAfterReparent(float dur)
-{
-    // ensure parent is original
-    if (originalParent != null && rect.parent != originalParent)
-        rect.SetParent(originalParent, true);
-
-    // animate to startAnchoredPos in original parent's space
-    yield return MoveToAnchoredPositionCo(rect, startAnchoredPos, dur);
-
-    // final snap
-    if (returnToOriginOnRelease)
         rect.localPosition = Vector3.zero;
-}
-
-
-
-    IEnumerator SnapThenCorrect()
-    {
-        // Run your existing animation coroutine
-        yield return MoveToAnchoredPosition(rect, GetAnchoredPositionForTarget(snapTarget), 0.12f);
-
-        // 👇 After it finishes, manually place it exactly on the target
-        rect.position = snapTarget.position;
-        rect.anchoredPosition = GetAnchoredPositionForTarget(snapTarget);
     }
 
+    IEnumerator ReturnToOriginAfterReparent(float dur)
+    {
+        if (originalParent != null && rect.parent != originalParent)
+            rect.SetParent(originalParent, true);
+
+        yield return MoveToAnchoredPositionCo(rect, startAnchoredPos, dur);
+
+        if (returnToOriginOnRelease)
+            rect.anchoredPosition = Vector3.zero;
+    }
 
     Vector2 GetAnchoredPositionForTarget(RectTransform target)
     {
@@ -229,12 +352,8 @@ IEnumerator ReturnToOriginAfterReparent(float dur)
         }
         r.anchoredPosition = Vector3.zero;
 
-        // Guarantee exact localPosition if requested and target is the origin
         if (returnToOriginOnRelease && targetAnchored == startAnchoredPos)
-        {
-            // Force exact localPosition zero to avoid tiny offsets
             r.localPosition = Vector3.zero;
-        }
     }
 
     void KeepInsideParent(RectTransform r)
@@ -256,30 +375,24 @@ IEnumerator ReturnToOriginAfterReparent(float dur)
         if (rectCorners[2].y > parentCorners[2].y) offset.y = parentCorners[2].y - rectCorners[2].y;
 
         if (offset != Vector3.zero)
-        {
             r.position += offset;
-        }
     }
 
     public void SetSnapTarget(RectTransform target)
     {
-        snapTarget = target;
+        // kept for backwards compatibility if you were using this previously
+        // (it sets the single snapTarget - not used in the new multiple-wrong-target flow)
+        // If you want to still use snapTarget, set correctSnapTarget or wrongSnapTargets accordingly.
+        correctSnapTarget = target;
     }
 
-    /// <summary>
-    /// Reset this draggable to its original position.
-    /// If animate == true it will animate and then force localPosition = Vector3.zero (if returnToOriginOnRelease is true).
-    /// </summary>
     public void ResetToStart(bool animate = true)
     {
         if (!animate)
         {
             rect.anchoredPosition = startAnchoredPos;
             if (returnToOriginOnRelease)
-            {
                 rect.localPosition = Vector3.zero;
-               
-            }
         }
         else
         {
@@ -290,15 +403,11 @@ IEnumerator ReturnToOriginAfterReparent(float dur)
 
     IEnumerator ResetCoroutine()
     {
-        // Animate to startAnchoredPos
         yield return MoveToAnchoredPositionCo(rect, startAnchoredPos, returnDuration);
-
-        // After animation, force exact zero localPosition if requested
         if (returnToOriginOnRelease)
             rect.anchoredPosition = Vector3.zero;
     }
 
-    // Helper coroutine wrapper so MoveToAnchoredPosition (which returns IEnumerator) can be used inside another coroutine
     IEnumerator MoveToAnchoredPositionCo(RectTransform r, Vector2 targetAnchored, float dur)
     {
         Vector2 from = r.anchoredPosition;
@@ -309,7 +418,57 @@ IEnumerator ReturnToOriginAfterReparent(float dur)
             r.anchoredPosition = Vector2.Lerp(from, targetAnchored, Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(t / dur)));
             yield return null;
         }
-        r.anchoredPosition = Vector3.zero; 
+        r.anchoredPosition = targetAnchored;
     }
-   
+    IEnumerator ShakeCanvas(float duration = 0.25f, float strength = 20f)
+    {
+        RectTransform targetRect = shakeTargetPanel != null ? shakeTargetPanel : canvas?.GetComponent<RectTransform>();
+        if (targetRect == null)
+        {
+            Debug.LogWarning("ShakeCanvas: No valid RectTransform to shake (assign shakeTargetPanel in inspector).");
+            yield break;
+        }
+
+        Debug.Log("ShakeCanvas started on " + targetRect.name);
+
+        Vector2 originalAnchored = targetRect.anchoredPosition;
+        Vector3 originalLocalPos = targetRect.localPosition;
+        Vector3 originalWorldPos = targetRect.position;
+
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float damper = 1f - Mathf.Clamp01(elapsed / duration);
+            Vector2 offset2D = Random.insideUnitCircle * strength * damper;
+
+            // Apply shake in multiple coordinate spaces so it’s always visible
+            targetRect.anchoredPosition = originalAnchored + offset2D;
+            targetRect.localPosition = originalLocalPos + (Vector3)offset2D;
+            targetRect.position = originalWorldPos + (Vector3)offset2D;
+
+            yield return null;
+        }
+
+        // Restore original position
+        targetRect.anchoredPosition = originalAnchored;
+        targetRect.localPosition = originalLocalPos;
+        targetRect.position = originalWorldPos;
+
+        Debug.Log("ShakeCanvas finished on " + targetRect.name);
+        dialogueBox.SetActive(true);
+        Invoke(nameof(TurbOffBox), 2f);
+       
+            AudioManager.Instance.audioSource_Click.Stop();
+            AudioManager.Instance.PlaySpecificClip(audioClip);
+        
+    }
+
+    public void TurbOffBox()
+    {
+        dialogueBox.SetActive(false);
+    }
+
+
 }

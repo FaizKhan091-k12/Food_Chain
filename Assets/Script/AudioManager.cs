@@ -29,12 +29,12 @@ public class AudioManager : MonoBehaviour
         isMute = !isMute;
         if (isMute)
         {
-            audioSource_Click.enabled = false;
+          
             audioSource_GameBG.enabled = false;
         }
         else
         {
-            audioSource_Click.enabled = true;
+          
             audioSource_GameBG.enabled = true;
         }
     }
@@ -58,7 +58,7 @@ public class AudioManager : MonoBehaviour
         while (t < 1)
         {
             t += Time.deltaTime;
-            audioSource_GameBG.volume = Mathf.Lerp(1, 0, t);
+            audioSource_GameBG.volume = Mathf.Lerp(.3f, 0, t);
 
             yield return null;
         }
@@ -74,7 +74,7 @@ public class AudioManager : MonoBehaviour
         while (t < 1)
         {
             t += Time.deltaTime;
-            audioSource_GameBG.volume = Mathf.Lerp(0, 1, t);
+            audioSource_GameBG.volume = Mathf.Lerp(0, .3f, t);
 
             yield return null;
         }
@@ -85,7 +85,7 @@ public class AudioManager : MonoBehaviour
         while (t < 1)
         {
             t += Time.deltaTime;
-            audioSource_GameBG.volume = Mathf.Lerp(1, 0, t);
+            audioSource_GameBG.volume = Mathf.Lerp(.3f, 0, t);
 
             yield return null;
         }
@@ -96,15 +96,19 @@ public class AudioManager : MonoBehaviour
     IEnumerator FadeIntoMain1()
     {
         audioSource_GameBG.resource = start_BG;
-           audioSource_GameBG.Play();
+        audioSource_GameBG.Play();
         float t = 0f;
         while (t < 1)
         {
             t += Time.deltaTime;
-            audioSource_GameBG.volume = Mathf.Lerp(0, 1, t);
+            audioSource_GameBG.volume = Mathf.Lerp(0, .3f, t);
 
             yield return null;
         }
     }
 
+    public void PlaySpecificClip(AudioClip audioClip)
+    {
+        audioSource_Click.PlayOneShot(audioClip);
+    }
 }

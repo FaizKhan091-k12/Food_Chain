@@ -168,9 +168,19 @@ public class UIManager : MonoBehaviour
             item.gameObject.SetActive(false);
             subMenuButtons[0].gameObject.SetActive(true);
         }
-      
+        ResetState();
         AudioManager.Instance.ClickSound();
         Invoke(nameof(Terrestial), .3f);
+    }
+
+    private void ResetState()
+    {
+        terrestial.gameObject.SetActive(false);
+        desert.gameObject.SetActive(false);
+        aquatic.gameObject.SetActive(false);
+        terrestial.gameObject.SetActive(true);
+        desert.gameObject.SetActive(true);
+        aquatic.gameObject.SetActive(true);
     }
 
     void Terrestial()
@@ -185,7 +195,7 @@ public class UIManager : MonoBehaviour
             item.gameObject.SetActive(false);
             subMenuButtons[1].gameObject.SetActive(true);
         }
-       
+        ResetState();
         AudioManager.Instance.ClickSound();
         Invoke(nameof(Desert), .3f);
     }
@@ -197,7 +207,7 @@ public class UIManager : MonoBehaviour
             item.gameObject.SetActive(false);
             subMenuButtons[2].gameObject.SetActive(true);
         }
-       
+        ResetState();
         AudioManager.Instance.ClickSound();
         Invoke(nameof(Aquatic), .3f);
     }
@@ -215,7 +225,9 @@ public class UIManager : MonoBehaviour
     }
     public void MainToSubMenu()
     {
-        AudioManager.Instance.ClickSound();
+
+        AudioManager.Instance.audioSource_Click.Stop();
+          AudioManager.Instance.ClickSound();
         terrestial.transform.DOScale(Vector2.zero, .2f).SetEase(ease);
         desert.transform.DOScale(Vector2.zero, .2f).SetEase(ease);
         aquatic.transform.DOScale(Vector2.zero, .2f).SetEase(ease);
