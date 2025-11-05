@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 0b7a1d2932fd514449bc101479a44857
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9062159717396302110
+    second: edovu-logo-new-oct22-full-square-500x500-1_0
+  - first:
+      213: 7559462948775323558
+    second: edovu-logo-new-oct22-full-square-500x500-1_1
+  - first:
+      213: 7411076413940137226
+    second: edovu-logo-new-oct22-full-square-500x500-1_2
+  - first:
+      213: 6380742615390876956
+    second: edovu-logo-new-oct22-full-square-500x500-1_3
+  - first:
+      213: 7099743273358862052
+    second: edovu-logo-new-oct22-full-square-500x500-1_4
+  - first:
+      213: 3246376968731483866
+    second: edovu-logo-new-oct22-full-square-500x500-1_5
+  - first:
+      213: 4096978651176297344
+    second: edovu-logo-new-oct22-full-square-500x500-1_6
+  - first:
+      213: 7752465529624546450
+    second: edovu-logo-new-oct22-full-square-500x500-1_7
+  - first:
+      213: -667971467956007443
+    second: edovu-logo-new-oct22-full-square-500x500-1_8
+  - first:
+      213: -2304615154601916616
+    second: edovu-logo-new-oct22-full-square-500x500-1_9
+  - first:
+      213: 7810769500637138320
+    second: edovu-logo-new-oct22-full-square-500x500-1_10
+  - first:
+      213: -4023939145224574111
+    second: edovu-logo-new-oct22-full-square-500x500-1_11
+  - first:
+      213: -7709534278188973969
+    second: edovu-logo-new-oct22-full-square-500x500-1_12
+  - first:
+      213: 7508655582667356424
+    second: edovu-logo-new-oct22-full-square-500x500-1_13
+  - first:
+      213: 3992280484267844972
+    second: edovu-logo-new-oct22-full-square-500x500-1_14
+  - first:
+      213: -7888008736469324248
+    second: edovu-logo-new-oct22-full-square-500x500-1_15
+  - first:
+      213: -824786831862751362
+    second: edovu-logo-new-oct22-full-square-500x500-1_16
+  - first:
+      213: -8849763005526853175
+    second: edovu-logo-new-oct22-full-square-500x500-1_17
+  - first:
+      213: -6061741927883111147
+    second: edovu-logo-new-oct22-full-square-500x500-1_18
+  - first:
+      213: 7009594917344431385
+    second: edovu-logo-new-oct22-full-square-500x500-1_19
+  - first:
+      213: 7053531862487647821
+    second: edovu-logo-new-oct22-full-square-500x500-1_20
+  - first:
+      213: -157980663764655125
+    second: edovu-logo-new-oct22-full-square-500x500-1_21
+  - first:
+      213: 7617095722942206177
+    second: edovu-logo-new-oct22-full-square-500x500-1_22
+  - first:
+      213: 5851047992059810127
+    second: edovu-logo-new-oct22-full-square-500x500-1_23
+  - first:
+      213: 5475490181147842706
+    second: edovu-logo-new-oct22-full-square-500x500-1_24
+  - first:
+      213: -1050429747592222115
+    second: edovu-logo-new-oct22-full-square-500x500-1_25
+  - first:
+      213: -5835124393412299129
+    second: edovu-logo-new-oct22-full-square-500x500-1_26
+  - first:
+      213: -7231100170952541408
+    second: edovu-logo-new-oct22-full-square-500x500-1_27
+  - first:
+      213: 3387274036842201409
+    second: edovu-logo-new-oct22-full-square-500x500-1_28
+  - first:
+      213: 1713056318063908032
+    second: edovu-logo-new-oct22-full-square-500x500-1_29
+  - first:
+      213: 6548461511238602441
+    second: edovu-logo-new-oct22-full-square-500x500-1_30
+  - first:
+      213: -4823572118334265186
+    second: edovu-logo-new-oct22-full-square-500x500-1_31
+  - first:
+      213: 7796353355085488890
+    second: edovu-logo-new-oct22-full-square-500x500-1_32
+  - first:
+      213: -159921109722717336
+    second: edovu-logo-new-oct22-full-square-500x500-1_33
+  - first:
+      213: -7107970710162177890
+    second: edovu-logo-new-oct22-full-square-500x500-1_34
+  - first:
+      213: 6113217131446572462
+    second: edovu-logo-new-oct22-full-square-500x500-1_35
+  - first:
+      213: 6647215445355877810
+    second: edovu-logo-new-oct22-full-square-500x500-1_36
+  - first:
+      213: -896642572613026974
+    second: edovu-logo-new-oct22-full-square-500x500-1_37
+  - first:
+      213: -2218608549004801490
+    second: edovu-logo-new-oct22-full-square-500x500-1_38
+  - first:
+      213: 6942532911216725770
+    second: edovu-logo-new-oct22-full-square-500x500-1_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_0
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 168
+        width: 292
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e19c245ef3243cd70800000000000000
+      internalID: 9062159717396302110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_1
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 399
+        width: 45
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7ea7a008b98e860800000000000000
+      internalID: 7559462948775323558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_2
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 217
+        width: 179
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0d7d20abbe69d660800000000000000
+      internalID: 7411076413940137226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_3
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 83
+        width: 30
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c15f1912a93fc8850800000000000000
+      internalID: 6380742615390876956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_4
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 83
+        width: 35
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e6260d14ea578260800000000000000
+      internalID: 7099743273358862052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_5
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 83
+        width: 36
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adedf3c27a27d0d20800000000000000
+      internalID: 3246376968731483866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_6
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 83
+        width: 37
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 083e8b360646bd830800000000000000
+      internalID: 4096978651176297344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_7
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 83
+        width: 35
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29c4bba235a469b60800000000000000
+      internalID: 7752465529624546450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_8
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 83
+        width: 31
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dedc26c2d73eab6f0800000000000000
+      internalID: -667971467956007443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_9
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 83
+        width: 25
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83788fd2abc5400e0800000000000000
+      internalID: -2304615154601916616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_10
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 83
+        width: 30
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09d8ee34a7d656c60800000000000000
+      internalID: 7810769500637138320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_11
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 83
+        width: 29
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16ba91bcaa81828c0800000000000000
+      internalID: -4023939145224574111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_12
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 83
+        width: 30
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6049dcbb6b320590800000000000000
+      internalID: -7709534278188973969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_13
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 83
+        width: 31
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80934a9487a143860800000000000000
+      internalID: 7508655582667356424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_14
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 83
+        width: 25
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c65628cc2fd676730800000000000000
+      internalID: 3992280484267844972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_15
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 83
+        width: 29
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82e619db8d9288290800000000000000
+      internalID: -7888008736469324248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_16
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 52
+        width: 13
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7f966f0fb4cd84f0800000000000000
+      internalID: -824786831862751362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_17
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 52
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c9bd2d3f635f2580800000000000000
+      internalID: -8849763005526853175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_18
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 52
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5158f6445dd50eba0800000000000000
+      internalID: -6061741927883111147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_19
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 52
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91dc2bb5075174160800000000000000
+      internalID: 7009594917344431385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_20
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 52
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d46c9739bdd23e160800000000000000
+      internalID: 7053531862487647821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_21
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 52
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be36dee5c6dbecdf0800000000000000
+      internalID: -157980663764655125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_22
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 52
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e01e12f33c55b960800000000000000
+      internalID: 7617095722942206177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_23
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 52
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f41dc7a0629133150800000000000000
+      internalID: 5851047992059810127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_24
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 52
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 298d4723f49dcfb40800000000000000
+      internalID: 5475490181147842706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_25
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 52
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5a2341c5bf1c61f0800000000000000
+      internalID: -1050429747592222115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_26
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 52
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 786717ea749750fa0800000000000000
+      internalID: -5835124393412299129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_27
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 52
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02b7b1fd4b8f5ab90800000000000000
+      internalID: -7231100170952541408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_28
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 52
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14102ea3ac3020f20800000000000000
+      internalID: 3387274036842201409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_29
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 52
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c4107625aff5c710800000000000000
+      internalID: 1713056318063908032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_30
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 52
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cec1ba9c0fc0ea50800000000000000
+      internalID: 6548461511238602441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_31
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 52
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e98253af6ba3f0db0800000000000000
+      internalID: -4823572118334265186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_32
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 52
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af2ab41d116323c60800000000000000
+      internalID: 7796353355085488890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_33
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 52
+        width: 13
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86324e61998d7cdf0800000000000000
+      internalID: -159921109722717336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_34
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 52
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9007ea7c4a6b5d90800000000000000
+      internalID: -7107970710162177890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_35
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 52
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea594b2879286d450800000000000000
+      internalID: 6113217131446572462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_36
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 52
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b55de5aa37af3c50800000000000000
+      internalID: 6647215445355877810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_37
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 52
+        width: 6
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b78e0b45c7e83f0800000000000000
+      internalID: -896642572613026974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_38
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 52
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2a8ce4874be531e0800000000000000
+      internalID: -2218608549004801490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: edovu-logo-new-oct22-full-square-500x500-1_39
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 52
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0f088e46e4d85060800000000000000
+      internalID: 6942532911216725770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      edovu-logo-new-oct22-full-square-500x500-1_0: 9062159717396302110
+      edovu-logo-new-oct22-full-square-500x500-1_1: 7559462948775323558
+      edovu-logo-new-oct22-full-square-500x500-1_10: 7810769500637138320
+      edovu-logo-new-oct22-full-square-500x500-1_11: -4023939145224574111
+      edovu-logo-new-oct22-full-square-500x500-1_12: -7709534278188973969
+      edovu-logo-new-oct22-full-square-500x500-1_13: 7508655582667356424
+      edovu-logo-new-oct22-full-square-500x500-1_14: 3992280484267844972
+      edovu-logo-new-oct22-full-square-500x500-1_15: -7888008736469324248
+      edovu-logo-new-oct22-full-square-500x500-1_16: -824786831862751362
+      edovu-logo-new-oct22-full-square-500x500-1_17: -8849763005526853175
+      edovu-logo-new-oct22-full-square-500x500-1_18: -6061741927883111147
+      edovu-logo-new-oct22-full-square-500x500-1_19: 7009594917344431385
+      edovu-logo-new-oct22-full-square-500x500-1_2: 7411076413940137226
+      edovu-logo-new-oct22-full-square-500x500-1_20: 7053531862487647821
+      edovu-logo-new-oct22-full-square-500x500-1_21: -157980663764655125
+      edovu-logo-new-oct22-full-square-500x500-1_22: 7617095722942206177
+      edovu-logo-new-oct22-full-square-500x500-1_23: 5851047992059810127
+      edovu-logo-new-oct22-full-square-500x500-1_24: 5475490181147842706
+      edovu-logo-new-oct22-full-square-500x500-1_25: -1050429747592222115
+      edovu-logo-new-oct22-full-square-500x500-1_26: -5835124393412299129
+      edovu-logo-new-oct22-full-square-500x500-1_27: -7231100170952541408
+      edovu-logo-new-oct22-full-square-500x500-1_28: 3387274036842201409
+      edovu-logo-new-oct22-full-square-500x500-1_29: 1713056318063908032
+      edovu-logo-new-oct22-full-square-500x500-1_3: 6380742615390876956
+      edovu-logo-new-oct22-full-square-500x500-1_30: 6548461511238602441
+      edovu-logo-new-oct22-full-square-500x500-1_31: -4823572118334265186
+      edovu-logo-new-oct22-full-square-500x500-1_32: 7796353355085488890
+      edovu-logo-new-oct22-full-square-500x500-1_33: -159921109722717336
+      edovu-logo-new-oct22-full-square-500x500-1_34: -7107970710162177890
+      edovu-logo-new-oct22-full-square-500x500-1_35: 6113217131446572462
+      edovu-logo-new-oct22-full-square-500x500-1_36: 6647215445355877810
+      edovu-logo-new-oct22-full-square-500x500-1_37: -896642572613026974
+      edovu-logo-new-oct22-full-square-500x500-1_38: -2218608549004801490
+      edovu-logo-new-oct22-full-square-500x500-1_39: 6942532911216725770
+      edovu-logo-new-oct22-full-square-500x500-1_4: 7099743273358862052
+      edovu-logo-new-oct22-full-square-500x500-1_5: 3246376968731483866
+      edovu-logo-new-oct22-full-square-500x500-1_6: 4096978651176297344
+      edovu-logo-new-oct22-full-square-500x500-1_7: 7752465529624546450
+      edovu-logo-new-oct22-full-square-500x500-1_8: -667971467956007443
+      edovu-logo-new-oct22-full-square-500x500-1_9: -2304615154601916616
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

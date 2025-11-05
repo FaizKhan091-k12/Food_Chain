@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] bool isMute;
     [SerializeField] Ease ease;
     [SerializeField] GameObject leafsParticles;
-
+    [SerializeField] GameObject instructionPanel;
 
     public float pivotX, pivotY, duration;
 
@@ -45,7 +45,17 @@ public class UIManager : MonoBehaviour
 
     }
 
-  
+    public void OpenInstructions()
+    {
+        instructionPanel.transform.localScale = Vector3.zero;
+        instructionPanel.transform.DOScale(Vector3.one, .2f).SetEase(ease);
+    }
+
+    public void CloseInstructionPanel()
+    {
+        instructionPanel.transform.localScale = Vector3.one;
+        instructionPanel.transform.DOScale(Vector3.zero, .2f).SetEase(ease);
+    }
 
     private void ScaleZeroBtn()
     {
